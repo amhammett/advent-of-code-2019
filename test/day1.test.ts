@@ -12,7 +12,7 @@ describe('day 1 part 1', () => {
 
   for (const [input, output] of Object.entries(sampleInput)) {
     it('input (' + input + ') should match expected output (' + output + ')', () => {
-      return assert.strictEqual(day1.part1(input), output);
+      return assert.strictEqual(day1.fuelForMass(input), output);
     });
   }
 });
@@ -27,7 +27,7 @@ describe('day 1 part 2', () => {
 
   for (const [input, output] of Object.entries(sampleInput)) {
     it('input (' + input + ') should match expected output (' + output + ')', () => {
-      return assert.strictEqual(day1.part2(input), output);
+      return assert.strictEqual(day1.fuelForMassAndFuel(input), output);
     });
   }
 });

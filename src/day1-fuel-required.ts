@@ -1,4 +1,4 @@
-const part1 = (input:number) => {
+const fuelForMass = (input:number) => {
   let fuel = Math.floor(input/3) - 2;
 
   if (fuel < 0) {
@@ -8,12 +8,12 @@ const part1 = (input:number) => {
   return fuel;
 };
 
-const part2 = (input: number) => {
-  let fuel = part1(input);
+const fuelForMassAndFuel = (input: number) => {
+  let fuel = fuelForMass(input);
   let total = fuel;
 
   while (fuel > 0) {
-    fuel = part1(fuel);
+    fuel = fuelForMass(fuel);
     total += fuel;
   }
 
@@ -21,6 +21,6 @@ const part2 = (input: number) => {
 };
 
 module.exports = {
-  part1,
-  part2,
+  fuelForMass,
+  fuelForMassAndFuel,
 };
