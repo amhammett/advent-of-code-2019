@@ -1,0 +1,25 @@
+{
+  "name": "advent-of-code-2019",
+  "version": "0.1.0",
+  "description": "advent solutions",
+  "scripts": {
+    "build": "npm run compile",
+    "compile": "tsc -p .",
+    "lint": "tslint -c tslint.json  --project . -t codeFrame",
+    "test": "c8 mocha build/test",
+    "pretest": "npm run compile",
+    "posttest": "npm run lint"
+  },
+  "dependencies": {
+    "@types/node": "^12.12.14",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.2"
+  },
+  "devDependencies": {
+    "@types/mocha": "^5.2.7",
+    "c8": "^6.0.1",
+    "codecov": "^3.6.1",
+    "mocha": "^6.2.2",
+    "tsc-watch": "^4.0.0"
+  }
+}
