@@ -30,7 +30,14 @@ const gravityAssist = (input: string) => {
 
     } else if (opCode === magic.opMultiply) {
       opAnswer = element1 * element2;
-    }    
+    }
+
+    if (opAnswer === 19690720) { // hack of a solution
+      console.log('--- element1=' + element1 + ' element2=' + element2);
+
+      // super lazy
+      return false;
+    }
 
     intcode[opTarget] = String(opAnswer);
   }
