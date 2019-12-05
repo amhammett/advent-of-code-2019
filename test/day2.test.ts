@@ -18,14 +18,55 @@ describe('day 2 part 1', () => {
   }
 });
 
-describe('day 2 part 2', () => {
-  const sampleInput = {
-  };
+describe('day 2 part 2 update program reference', () => {
+  const sampleInput = [{
+    'input': { 
+      intCode: ['1'],
+      index: 0,
+      val: 0,
+    },
+    'output': [0],
+  }, {
+    'input': { 
+      intCode: ['1', '2', '3'],
+      index: 1,
+      val: 3,
+    },
+    'output': [1, 3, 3],
+  }, {
+    'input': { 
+      intCode: ['1', '2', '3'],
+      index: 1,
+      val: 2,
+    },
+    'output': [1, 2, 3],
+  }];
 
-  for (const [input, output] of Object.entries(sampleInput)) {
+  for (let i = 0; i < sampleInput.length; i++) {
+    const input = sampleInput[i].input;
+    const output = sampleInput[i].output;
+
     it('input (' + input + ') should match expected output (' + output + ')', () => {
-      return assert.strictEqual(day2.gravityAssistAndFuel(input), output);
+      return assert.deepEqual(day2.updateProgramRef(input.intCode, input.index, input.val), output);
     });
   }
 });
 
+describe('day 2 part 2 exit code', () => {
+  const sampleInput = [{
+    'input': { 
+      intCode: '1,0,0,0,99',
+      exitCode: 2,
+    },
+    'output': '2',
+  }];
+
+  for (let i = 0; i < sampleInput.length; i++) {
+    const input = sampleInput[i].input;
+    const output = sampleInput[i].output;
+
+    it('input (' + input + ') should match expected output (' + output + ')', () => {
+      return assert.strictEqual(day2.gravityAssist(input.intCode, input.exitCode), output);
+    });
+  }
+});

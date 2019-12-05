@@ -10,15 +10,18 @@ const updateProgramRef = (intcode: number[], index: number, value: number) => {
   return intcode;
 };
 
-const gravityAssist = (input: string) => {
+const gravityAssist = (input: string, exitCode?: number) => {
   const intcode = input.split(',');
+  let result: string | undefined;
 
   for (let i=0; i < intcode.length; i=i+4) {
     const opCode = intcode[i];
     let opAnswer;
 
     if (opCode === magic.opStop) {
-      return intcode.join(',');
+      result = intcode.join(',');
+      break;
+      // return intcode.join(',');
     }
 
     const element1 = Number(intcode[Number(intcode[(i+1)])]);
@@ -27,28 +30,23 @@ const gravityAssist = (input: string) => {
 
     if (opCode === magic.opAdd) {
       opAnswer = element1 + element2;
-
     } else if (opCode === magic.opMultiply) {
       opAnswer = element1 * element2;
     }
 
-    if (opAnswer === 19690720) { // hack of a solution
-      console.log('--- element1=' + element1 + ' element2=' + element2);
-
-      // super lazy
-      return false;
+    if (exitCode !== undefined && opAnswer === exitCode) {
+      result = String(exitCode);
+      break;
+      // return exitCode;
     }
 
     intcode[opTarget] = String(opAnswer);
   }
-};
 
-const gravityAssistAndFuel = (input: string) => {
-  return input;
+  return result;
 };
 
 module.exports = {
   updateProgramRef,
   gravityAssist,
-  gravityAssistAndFuel,
 };
