@@ -10,6 +10,7 @@ help: ## this help text
 
 yarn_path := yarn
 node_tsc_path := ./node_modules/.bin/tsc
+node_nodemon_path := ./node_modules/.bin/nodemon
 
 # environment
 install: ## install all the things
@@ -18,6 +19,12 @@ install: ## install all the things
 # testing
 test: ## test all the things
 	npm run test
+
+nodemon_extensions := ts
+nodemon_commands := make test || true
+
+watch: ## watch and run on change
+	${node_nodemon_path} -e ${nodemon_extensions} -x '${nodemon_commands}'
 
 # development
 build: ## build all the things
