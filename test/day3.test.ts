@@ -3,12 +3,31 @@ import * as assert from 'assert';
 const day3 = require('../src/day3-cross-wires');
 
 interface SampleData {
-    wire1: string;
-    wire2: string;
-    distance: number;
+  wire1: string;
+  wire2: string;
+  distance: number;
 }
 
-describe('day 3 part 1', () => {
+describe('day 3 part 1 intersect', () => {
+  // start o
+  // lines -/|
+  // end of ref +
+  // intersection x 
+  const sampleInput = {
+    'R8': [['o', '-', '-', '-', '-', '-', '-', '-', '+']],
+    'U5': [['+'], ['|'], ['|'], ['|'], ['|'],['o']],
+    'L5': [['+', '-', '-', '-', '-', 'o']],
+    'D3': [['o'], ['|'], ['|'], ['+']],
+  };
+
+  for (const [input, output] of Object.entries(sampleInput)) {
+    it('input (' + input + ') should match expected output (' + output + ')', () => {
+      return assert.deepEqual(day3.drawLine(input), output);
+    });
+  }
+});
+
+describe('day 3 part 1 intersect', () => {
   const sampleInput: SampleData[] = [
     {
       'wire1': 'R8,U5,L5,D3',
