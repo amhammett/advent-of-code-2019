@@ -18,7 +18,7 @@
   "devDependencies": {
     "@types/mocha": "^5.2.7",
     "c8": "^6.0.1",
-    "codecov": "^3.6.1",
+    "codecov": "^3.7.1",
     "mocha": "^6.2.2",
     "nodemon": "^2.0.1",
     "tsc-watch": "^4.0.0"
